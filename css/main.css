@@ -1,0 +1,215 @@
+body {
+	font-family: 'Prompt', sans-serif;
+
+}
+
+.site {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.hometop { 
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 100%;*/
+}
+
+#topmenu{
+	font-size: 15px;
+	background: #1f4f58;
+	margin-top: 0px;
+}
+#topmenu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+#topmenu ul li {
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+}
+
+
+#topmenu ul li a {
+	color: #fff;
+	text-decoration: none;
+	line-height: 35px;
+	padding: 8px;
+	display: block;
+	
+}
+
+#topmenu ul li a:hover {
+	color: #dcda65;
+
+}
+
+.active {
+	background: #dcda65;
+}
+
+.active ul li a:hover {
+	color: #1f4f58;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+/*-------------------- BROWSE BOOKS -----------------------*/
+
+#book_list {
+	font-size: 18px;
+}
+
+#book_list ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+#book_list ul li {
+	border-bottom: 0.5px;
+	border-bottom-style: solid;
+	border-color: #53c0cc;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.reserve_book {
+	 background-color: #53c0cc;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+table {
+	width: 100%;
+}
+
+td {
+    border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #53c0cc;
+    text-align: left;
+    padding: 8px;
+}
+
+/*--------------------------UPLOAD FILES PAGE-----------------*/
+
+.upload {
+	margin-top: 300px;
+}
+
+.danger-text {
+	font-size: 15px;
+	color: red;
+}
+
+/*--------------------------GALLERY PAGE-----------------*/
+
+.galleryimages {
+	margin-left: 60px;
+	margin-right: auto;
+	margin-bottom: 600px;
+}
+
+.gallery {
+    padding: 20px;
+    float: left;
+    width: 26%;
+}
+
+/*--------------------------CONTACT US PAGE-----------------*/
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #53c0cc;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #1f4f58;
+}
+
+.containerform {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+}
+
+.contactus {
+	margin-top: 80px;
+	width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+/*------------------------------END OF CONTACT US PAGE-------------------*/
+
+/*----------------------------LOGIN FORM---------------------------*/
+
+.loginform, input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+	background-color: #53c0cc;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+/*----------------------------END OF LOGIN FORM---------------------------*/
+
+
+
+/*FOOTER*/
+#pagefooter {
+	margin-top:50px;
+	background: #1f4f58;
+	color: #fff;
+	padding: 10px 0 10px 15px;
+	font-size: 14px;
+}
+
+
+
+
