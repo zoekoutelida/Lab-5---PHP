@@ -17,9 +17,6 @@ include ('config.php');
 	
 	<?php include("header.php")
 	
-	$email;
-	$email = htmlentities($email);
-	//this protects the html entries not to tranform and only show it as plain text
 	
 	?>
 	
@@ -45,12 +42,10 @@ include ('config.php');
         </div>
              
 </main>
+	
+<?php include("footer.php") ?>
 </body>
 
-<footer id="pagefooter" class="site">
-                <!-- Copyright text, contact information -->
-                <p>TM & © 2018 Book Reads. All rights reserved.</p>
-            </footer>
 
 </html>
 

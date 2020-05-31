@@ -36,7 +36,7 @@ include ('config.php');
 	  echo "Sorry, you were not able to connect, because:" . $db->connect_error;
 	  exit();
 	}
-		$query = "UPDATE book SET reserved = 0 WHERE ID = ?";  
+		$query = "UPDATE books SET reserved = 0 WHERE ID = ?";  
 	
 		$statement = $db->prepare($query);
 		$statement -> bind_param("i", $ID);
@@ -48,11 +48,8 @@ include ('config.php');
 	?>
 	
     
-
-</body>
-
 <?php include("footer.php") ?>
-
-
+	
+</body>
 
 </html>

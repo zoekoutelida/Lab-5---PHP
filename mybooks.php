@@ -25,9 +25,9 @@ if(isset($_POST) && !empty($_POST)){
 }
 
 
-$query = "SELECT book.ID, book.Title, book.ISBN, author.first_name, author.last_name, book.reserved FROM book
-JOIN author_book ON book.ID = author_book.bookID
-JOIN author ON author.ID = author_book.authorID
+$query = "SELECT books.ID, books.Title, books.ISBN, author.first_name, author.last_name, books.reserved FROM books
+JOIN author_books ON books.ID = author_books.bookID
+JOIN author ON author.ID = author_books.authorID
 WHERE Reserved = 1";
 
 
@@ -66,32 +66,14 @@ $statement->execute();
 	}
 	echo "</table>";
 	
-	if(isset($_POST['submit']))
-            {
-                $db = "UPDATE book SET Reserved = 1 WHERE Reserved=0";    
-            }
-            echo'</tr>';
-
-            echo '</table>'; 
 
 	?>
 	
-	<!--------
-      <div id="book_list">
-      	<ul>
-      		<li>The Alchemist - Paulo Coelho<button class="reserve_book">Return</button></li>
-      		<li>The Leopard - Jo Nesbo<button class="reserve_book">Return</button></li>
-      	</ul>
-
-      </div>
---------------->
 
     
 
-</body>
-
 <?php include("footer.php") ?>
-
+</body>
 
 
 </html>

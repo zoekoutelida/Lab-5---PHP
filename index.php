@@ -21,9 +21,9 @@ include ('config.php');
 
     
 
+<?php include("footer.php") ?>
 </body>
 
-<?php include("footer.php") ?>
 
 
 

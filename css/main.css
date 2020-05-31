@@ -117,16 +117,34 @@ td {
 
 /*--------------------------GALLERY PAGE-----------------*/
 
-.galleryimages {
-	margin-left: 60px;
-	margin-right: auto;
-	margin-bottom: 600px;
+
+.gallery-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+
+
+.gallery-container a h3 {
+  font-family: 'Prompt', 'sans-serif';
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+	text-decoration: none !important;
+}
+
+.gallery-container a p {
+  font-family: 'Prompt', 'sans-serif';
+  font-size: 14px;
+  color: #000;
+  
 }
 
 .gallery {
-    padding: 20px;
-    float: left;
-    width: 26%;
+	margin: 10px;
 }
 
 /*--------------------------CONTACT US PAGE-----------------*/
@@ -178,12 +196,13 @@ input[type=submit]:hover {
 /*----------------------------LOGIN FORM---------------------------*/
 
 .loginform, input[type=text], input[type=password] {
-    width: 100%;
+   	width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+	
 }
 
 button {
@@ -195,6 +214,9 @@ button {
     cursor: pointer;
 }
 
+.error {
+	color:red;
+}
 
 
 /*----------------------------END OF LOGIN FORM---------------------------*/
@@ -210,6 +232,29 @@ button {
 	font-size: 14px;
 }
 
+/*-----------------------ADMIN PANEL------------------------*/
+
+#adminbooks {
+	margin-top: 20px;
+}
+.deletebook {
+	color: red;
+	text-decoration: none;
+}
+
+.deleteuser {
+	color: red;
+	text-decoration: none;
+}
+
+h2 {
+	margin-top: 50px;
+}
+
+#addbookform {
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
 
 
 

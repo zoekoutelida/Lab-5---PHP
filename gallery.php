@@ -1,8 +1,14 @@
   <!doctype html>
-
 <?php
 include ('config.php');
+include ('admin/functions.php');
 
+@ $db = new mysqli($dbserver, $dbuser, $dbpasswd, $dbname);
+
+if($db->connect_error){
+  echo "Sorry, you were not able to connect, because:" . $db->connect_error;
+  exit();
+}
 ?>
 
 
@@ -20,38 +26,48 @@ include ('config.php');
 	
 	<?php include("header.php") ?>
     
-<div class="galleryimages">
-  <div class="gallery">
-      <img src="images/elephant.png" alt="Elephant" width="250" height="250">
-  </div>
-	
-	<div class="gallery">
-      <img src="images/parrot.png" alt="Parrot" width="250" height="250">
-	</div>
-	
-	<div class="gallery">
-      <img src="images/dolphin.png" alt="Dolphin" width="250" height="250">
-	</div>
-	
-	<div class="gallery">
-      <img src="images/horse.png" alt="Horse" width="250" height="250">
-  	</div>
-	
-	<div class="gallery">
-      <img src="images/ladybug.png" alt="Ladybug" width="250" height="250">
-  	</div>
 
-	<div class="gallery">
-      <img src="images/wolf.png" alt="Wolf" width="250" height="250">
-  	</div>
-	</div>
+	<div class="galleryimages">
+		<h2>Gallery</h2>
+		<div class="gallery-container">
+			<?php
+	
+			include_once 'config.php';
+			$db = new mysqli($dbserver, $dbuser, $dbpasswd, $dbname);
+	
+			$sql = "SELECT * FROM images ORDER BY imgOrder DESC";
+			$stmt = mysqli_stmt_init($db);
+			if (!mysqli_stmt_prepare($stmt, $sql)){
+				echo "SQL statement failed!";
+			} else {
+				mysqli_stmt_execute($stmt);
+				$result = mysqli_stmt_get_result($stmt);
+				
+				while ($row = mysqli_fetch_assoc($result)){
+					
+					
+					echo '<a href="#" class="gallery">
+							<div><img src="images/'.$row["imgFullName"].'" width="300"></div>
+							<h3>'.$row["title"].'</h3>
+							<p>'.$row["description"].'</p>
+						  </a>';
+					
+				}
+			}
+			
+	
+			
+			?>
+		</div>
+	
+	</section>
 
 		
 		
 	
+<?php include("footer.php") ?>
 </body>
 
-<?php include("footer.php") ?>
 
 
 </html>

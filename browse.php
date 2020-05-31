@@ -19,18 +19,18 @@ $searchtitle = '';
 $searchauthor = '';
 if(isset($_POST) && !empty($_POST)){
 	
-	$searchtitle = trim($_POST['title']);
-	$searchauthor = trim($_POST['author']);
+	$searchtitle = htmlentities(trim($_POST['title']));
+	$searchauthor = htmlentities(trim($_POST['author']));
 }
 
 
-$query = "SELECT book.ID, book.Title, book.ISBN, author.first_name, author.last_name, book.reserved FROM book
-JOIN author_book ON book.ID = author_book.bookID
-JOIN author ON author.ID = author_book.authorID";
+$query = "SELECT books.ID, books.Title, books.ISBN, author.first_name, author.last_name, books.reserved FROM books
+JOIN author_books ON books.ID = author_books.bookID
+JOIN author ON author.ID = author_books.authorID";
 
 if ($searchtitle && !$searchauthor){
 	
-	$query = $query . " WHERE book.Title LIKE '%" . $searchtitle . "%'";
+	$query = $query . " WHERE books.Title LIKE '%" . $searchtitle . "%'";
 }
 
 if (!$searchtitle && $searchauthor){
@@ -40,19 +40,15 @@ if (!$searchtitle && $searchauthor){
 
 if ($searchtitle && $searchauthor){
 	
-	$query = $query . " WHERE book.Title LIKE '%" . $searchtitle . "%' AND author.first_name LIKE '%" . $searchauthor . "%";
+	$query = $query . " WHERE books.Title LIKE '%" . $searchtitle . "%' AND author.first_name LIKE '%" . $searchauthor . "%";
 }
 	
-echo $query;
+
 
 
 $statement = $db->prepare($query);
 $statement -> bind_result($ID, $title, $isbn, $author_first, $author_last, $reserved);
 $statement->execute();
-
-/*if (available($statement)){
-	reserve();
-}*/
 
 
 
@@ -78,10 +74,10 @@ $statement->execute();
      <div class="containerform">
               <form action="" method = "post">
                 <label for="first_name">Author</label>
-                <input type="text" id="author" name="author" placeholder="ex. Jo Nesbo">
+                <input type="text" id="author" name="author" placeholder="Author of the book">
 
                 <label for="last_name">Book title</label>
-                <input type="text" id="title" name="title" placeholder="ex. Macbeth">
+                <input type="text" id="title" name="title" placeholder="Title of the book">
 
                 <input type="submit" name="submit" value="Submit">
               </form>
@@ -89,9 +85,9 @@ $statement->execute();
 	<?php
 	
 	echo '<table cellpadding="6">';
-	echo '<tr><td> Book ID </td><td>Title</td><td>Author</td><td>ISBN</td><td>Reserved</td> </b> </tr>';
+	echo '<tr><td> Book ID </td><td>Title</td><td>Author</td><td>ISBN</td><td>Reserved</td><td>Action</td> </b> </tr>';
 	while($statement->fetch()) {
-		if ($reserved==0){
+		if ($reserved==0 || $reserved==1 ){
 		echo "<tr>";
 		echo "<td> $ID </td><td> $title </td><td> $author_first $author_last </td><td> $isbn </td><td> $reserved</td>";
 		echo '<td><a href="reserved.php?ID='.urlencode($ID). '"> Reserve </a></td>';
@@ -107,23 +103,11 @@ $statement->execute();
             echo '</table>'; 
 
 	?>
-	<!-----
-      <div>
-      	<ul>
-      		<li>Blue Monday - Nicci French<button class="reserve_book">Reserve</button></li>
-      		<li>Snowman - Jo Nesbo<button class="reserve_book">Reserve</button></li>
-      		<li>The Shining - Stephen King<button class="reserve_book">Reserve</button></li>
-      		<li>The girl in the woods - Camilla Lackberg<button class="reserve_book">Reserve</button></li>
-      	</ul>
-
-      </div>
-		------------>
-    
-
-</body>
-
+	
+	
 <?php include("footer.php") ?>
 
+</body>
 
 
 </html>
